@@ -25,6 +25,7 @@ export default {
   menu: {
     home: 'Home',
     charts: 'Charts',
+    chartTable: 'Chart & Table',
     i18nDemo: 'i18n Demo',
   },
   table: {
@@ -50,6 +51,21 @@ export default {
     pieChart: 'Pie Chart',
     lineChart: 'Line Chart',
     radarChart: 'Radar Chart',
+  },
+  chartTable: {
+    title: 'Product Sales Data Analysis',
+    chartTitle: 'Sales Bar Chart',
+    tableTitle: 'Product Details',
+    chartSubtitle: 'Sales Statistics by Product',
+    yAxisLabel: 'Sales Quantity',
+    seriesName: 'Sales',
+    headers: {
+      name: 'Product Name',
+      category: 'Product Category',
+      value: 'Sales Quantity',
+      status: 'Sales Status',
+      description: 'Product Description',
+    },
   },
 }
 
