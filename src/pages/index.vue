@@ -428,26 +428,26 @@ const topLevelData = ref([
 }
 
 .v-data-table :deep(tbody tr) {
-  background-color: #e3f2fd50 !important;
+  background-color: #e3f2fd80 !important;
 }
 
 .level-2-table :deep(tbody tr) {
-  background-color: #f5f5f550 !important;
+  background-color: #e8f5e980 !important;
 }
 
 .level-3-table :deep(tbody tr) {
-  background-color: #fff9c450 !important;
+  background-color: #fce4ec80 !important;
 }
 
 .v-data-table :deep(tbody tr:hover) {
-  background-color: #bbdefb50 !important;
+  background-color: #bbdefb80 !important;
 }
 
 .level-2-table :deep(tbody tr:hover) {
-  background-color: #e0e0e050 !important;
+  background-color: #c8e6c980 !important;
 }
 
 .level-3-table :deep(tbody tr:hover) {
-  background-color: #fff59d50 !important;
+  background-color: #f8bbd080 !important;
 }
 </style>
