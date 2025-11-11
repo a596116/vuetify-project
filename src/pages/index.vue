@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-card border ripple v-loading="true">
+    <v-card border ripple>
       <v-card-title class="!p-4 !text-3xl text-hd-primary">
         {{ t('table.title') }}
       </v-card-title>

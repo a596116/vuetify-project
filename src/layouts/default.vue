@@ -1,6 +1,6 @@
 <template>
-  <v-layout class="">
-    <v-app-bar color="primary" prominent>
+  <v-layout class="!overflow-hidden !h-screen" full-height>
+    <v-app-bar color="primary">
       <v-toolbar-title>{{ t('common.appTitle') }}</v-toolbar-title>
       <v-spacer />
       <LanguageSwitcher />
@@ -26,7 +26,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <router-view />
+      <router-view class="!overflow-auto !h-full" />
     </v-main>
   </v-layout>
 </template>
