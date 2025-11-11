@@ -1,10 +1,10 @@
 <template>
   <v-container fluid>
-    <v-card>
+    <v-card border ripple v-loading="true">
       <v-card-title class="!p-4 !text-3xl text-hd-primary">
         {{ t('table.title') }}
       </v-card-title>
-      <v-card-text class="justify-end d-flex pa-2">
+      <v-card-text class="justify-end flex !p-2">
         <v-btn variant="outlined" @click="toggleExpandAll">
           {{ isAllExpanded ? t('table.collapseAll') : t('table.expandAll') }}
         </v-btn>

@@ -6,8 +6,8 @@
 
 import { createI18n } from 'vue-i18n'
 import { useLocale } from 'vuetify'
-import zhTW from '@/locales/zh-TW'
-import enUS from '@/locales/en-US'
+import zhTW from '@/locales/zh.json'
+import enUS from '@/locales/en.json'
 
 // 語言類型定義
 export type LocaleType = 'zh-TW' | 'en-US'
@@ -35,7 +35,7 @@ const i18n = createI18n({
     'zh-TW': zhTW,
     'en-US': enUS
   },
-  globalInjection: true // 全局注入 $t 函數
+  globalInjection: true // 全局注入 $t 函數,
 })
 
 // 導出切換語言的工具函數
@@ -50,7 +50,7 @@ export function setLocale(locale: LocaleType) {
     vuetifyLocale.current.value = vuetifyLocaleMap[locale]
   } catch (e) {
     // 如果不在組件上下文中，忽略錯誤
-    console.debug('Vuetify locale will be updated when component mounts')
+    console.debug('Vuetify locale will be updated when component mounts', e)
   }
 }
 

@@ -21,7 +21,6 @@ declare module 'vue-router/auto-routes' {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/chart-table': RouteRecordInfo<'/chart-table', '/chart-table', Record<never, never>, Record<never, never>>,
     '/charts': RouteRecordInfo<'/charts', '/charts', Record<never, never>, Record<never, never>>,
-    '/i18n-demo': RouteRecordInfo<'/i18n-demo', '/i18n-demo', Record<never, never>, Record<never, never>>,
   }
 
   /**
@@ -45,10 +44,6 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/charts.vue': {
       routes: '/charts'
-      views: never
-    }
-    'src/pages/i18n-demo.vue': {
-      routes: '/i18n-demo'
       views: never
     }
   }
