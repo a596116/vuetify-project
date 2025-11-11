@@ -7,7 +7,7 @@ import Vue from '@vitejs/plugin-vue'
 import VueRouter from 'unplugin-vue-router/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
-import tailwindcss from '@tailwindcss/vite'
+// import tailwindcss from '@tailwindcss/vite'
 
 // Utilities
 import { defineConfig } from 'vite'
@@ -57,8 +57,8 @@ export default defineConfig({
           }
         ]
       }
-    }),
-    tailwindcss()
+    })
+    // tailwindcss()
   ],
   optimizeDeps: {
     exclude: [

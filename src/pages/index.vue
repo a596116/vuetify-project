@@ -1,74 +1,78 @@
 <template>
-  <v-container fluid>
-    <v-card border ripple>
-      <v-card-title class="!p-4 !text-3xl text-hd-primary">
-        {{ t('table.title') }}
-      </v-card-title>
-      <v-card-text class="justify-end flex !p-2">
-        <v-btn variant="outlined" @click="toggleExpandAll">
-          {{ isAllExpanded ? t('table.collapseAll') : t('table.expandAll') }}
-        </v-btn>
-      </v-card-text>
+  <v-container fluid class="h-full">
+    <v-card border ripple class="flex flex-col h-full">
+      <section class="p-2">
+        <v-card-title class="!text-3xl text-hd-primary">
+          {{ t('table.title') }}
+        </v-card-title>
+        <v-card-text class="flex justify-end">
+          <v-btn variant="outlined" @click="toggleExpandAll">
+            {{ isAllExpanded ? t('table.collapseAll') : t('table.expandAll') }}
+          </v-btn>
+        </v-card-text>
+      </section>
       <!-- 第一層表格 -->
-      <v-data-table
-        v-model:expanded="expanded"
-        class="elevation-1"
-        :headers="headersWithExpand"
-        item-value="id"
-        :items="topLevelData"
-        show-expand
-        hide-default-footer
-        expand-on-click
-        fixed-header
-        height="600"
-      >
-        <template #item.data-table-expand="{ item, props }">
-          <v-btn v-if="hasChildren(getRawItem(item))" v-bind="normalizeExpandButtonProps(props)" />
-          <span v-else class="expand-placeholder" />
-        </template>
-        <template #expanded-row="{ columns, item }">
-          <tr v-if="item.children && item.children.length > 0">
-            <td class="pa-0" :colspan="columns.length">
-              <v-data-table
-                v-model:expanded="expandedSecond"
-                class="level-2-table"
-                density="compact"
-                :headers="headersWithExpand"
-                hide-default-footer
-                hide-default-header
-                item-value="id"
-                :items="item.children"
-                show-expand
-                expand-on-click
-              >
-                <template #item.data-table-expand="{ item: childItem, props }">
-                  <v-btn v-if="hasChildren(getRawItem(childItem))" v-bind="normalizeExpandButtonProps(props)" />
-                  <span v-else class="expand-placeholder" />
-                </template>
-                <template #expanded-row="{ columns: cols, item: child }">
-                  <tr v-if="child.children && child.children.length > 0">
-                    <td class="pa-0" :colspan="cols.length">
-                      <v-data-table
-                        class="level-3-table"
-                        density="compact"
-                        :headers="headersWithExpand"
-                        hide-default-footer
-                        hide-default-header
-                        item-value="id"
-                        :items="child.children"
-                      >
-                        <template #item.data-table-expand>
-                          <span class="expand-placeholder" />
-                        </template>
-                      </v-data-table>
-                    </td>
-                  </tr>
-                </template>
-              </v-data-table>
-            </td>
-          </tr>
-        </template>
-      </v-data-table>
+      <div class="overflow-hidden flex-1">
+        <v-data-table
+          v-model:expanded="expanded"
+          class="h-full"
+          :headers="headersWithExpand"
+          item-value="id"
+          :items="topLevelData"
+          show-expand
+          hide-default-footer
+          expand-on-click
+          fixed-header
+          height="100%"
+        >
+          <template #item.data-table-expand="{ item, props }">
+            <v-btn v-if="hasChildren(getRawItem(item))" v-bind="normalizeExpandButtonProps(props)" />
+            <span v-else class="expand-placeholder" />
+          </template>
+          <template #expanded-row="{ columns, item }">
+            <tr v-if="item.children && item.children.length > 0">
+              <td class="pa-0" :colspan="columns.length">
+                <v-data-table
+                  v-model:expanded="expandedSecond"
+                  class="level-2-table"
+                  density="compact"
+                  :headers="headersWithExpand"
+                  hide-default-footer
+                  hide-default-header
+                  item-value="id"
+                  :items="item.children"
+                  show-expand
+                  expand-on-click
+                >
+                  <template #item.data-table-expand="{ item: childItem, props }">
+                    <v-btn v-if="hasChildren(getRawItem(childItem))" v-bind="normalizeExpandButtonProps(props)" />
+                    <span v-else class="expand-placeholder" />
+                  </template>
+                  <template #expanded-row="{ columns: cols, item: child }">
+                    <tr v-if="child.children && child.children.length > 0">
+                      <td class="pa-0" :colspan="cols.length">
+                        <v-data-table
+                          class="level-3-table"
+                          density="compact"
+                          :headers="headersWithExpand"
+                          hide-default-footer
+                          hide-default-header
+                          item-value="id"
+                          :items="child.children"
+                        >
+                          <template #item.data-table-expand>
+                            <span class="expand-placeholder" />
+                          </template>
+                        </v-data-table>
+                      </td>
+                    </tr>
+                  </template>
+                </v-data-table>
+              </td>
+            </tr>
+          </template>
+        </v-data-table>
+      </div>
     </v-card>
   </v-container>
 </template>

@@ -1,9 +1,9 @@
-@import 'tailwindcss';
+/* @import 'tailwindcss'; */
 /* @config "../../tailwind.config.js"; */
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
 
-@theme {
+/* @theme {
   --color-hd-primary: #ec1818;
-}
+} */
