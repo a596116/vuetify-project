@@ -23,6 +23,12 @@ export const routes = [
         name: 'chart-table',
         component: () => import('@/pages/chart-table.vue'),
         meta: { title: '圖表與表格' }
+      },
+      {
+        path: '/os-usage',
+        name: 'os-usage',
+        component: () => import('@/pages/os-usage.vue'),
+        meta: { title: '操作系統統計' }
       }
     ]
   }

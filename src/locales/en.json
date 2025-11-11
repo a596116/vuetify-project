@@ -26,6 +26,7 @@
     "home": "Home",
     "charts": "Charts",
     "chartTable": "Chart & Table",
+    "osUsage": "OS Statistics",
     "i18nDemo": "i18n Demo"
   },
   "table": {
@@ -65,6 +66,24 @@
       "value": "Sales Quantity",
       "status": "Sales Status",
       "description": "Product Description"
+    }
+  },
+  "osUsage": {
+    "title": "Operating System Usage Statistics",
+    "subtitle": "User Data Analysis by Platform",
+    "unit": "Unit",
+    "trendChart": "Monthly Trend Chart",
+    "chartTitle": "Platform Usage Trends",
+    "headers": {
+      "os": "Operating System"
+    },
+    "stats": {
+      "total": "Total Users",
+      "totalDesc": "All Platforms Combined",
+      "mobile": "Mobile Devices",
+      "desktop": "Desktop Systems",
+      "web": "Web Platform",
+      "ofTotal": "of Total"
     }
   }
 }

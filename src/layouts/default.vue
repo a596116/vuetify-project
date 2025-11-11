@@ -65,6 +65,11 @@ const menuItems = computed(() => [
     title: t('menu.chartTable'),
     path: '/chart-table',
     icon: 'mdi-chart-box-outline'
+  },
+  {
+    title: t('menu.osUsage'),
+    path: '/os-usage',
+    icon: 'mdi-monitor-dashboard'
   }
 ])
 

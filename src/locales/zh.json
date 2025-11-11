@@ -26,6 +26,7 @@
     "home": "首頁",
     "charts": "圖表展示",
     "chartTable": "圖表與表格",
+    "osUsage": "操作系統統計",
     "i18nDemo": "多語系示範"
   },
   "table": {
@@ -65,6 +66,24 @@
       "value": "銷售數量",
       "status": "銷售狀態",
       "description": "產品描述"
+    }
+  },
+  "osUsage": {
+    "title": "操作系統使用統計",
+    "subtitle": "各平台使用者數據分析",
+    "unit": "單位",
+    "trendChart": "月度趨勢圖",
+    "chartTitle": "各平台使用趨勢",
+    "headers": {
+      "os": "操作系統"
+    },
+    "stats": {
+      "total": "總用戶數",
+      "totalDesc": "所有平台總計",
+      "mobile": "行動裝置",
+      "desktop": "桌面系統",
+      "web": "網頁端",
+      "ofTotal": "佔比"
     }
   }
 }
