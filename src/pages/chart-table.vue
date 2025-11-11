@@ -11,12 +11,7 @@
             <v-card variant="outlined">
               <v-card-title>{{ t('chartTable.chartTitle') }}</v-card-title>
               <v-card-text>
-                <v-chart
-                  :option="barChartOption"
-                  :style="{ height: '500px' }"
-                  autoresize
-                  @click="onChartClick"
-                />
+                <v-chart :option="barChartOption" :style="{ height: '500px' }" autoresize @click="onChartClick" />
               </v-card-text>
             </v-card>
           </v-col>
@@ -30,26 +25,26 @@
                   :headers="headers"
                   :items="tableData"
                   :items-per-page="10"
+                  hide-default-footer
                   class="elevation-1"
                   density="comfortable"
                 >
-                  <template #item.value="{ item }">
-                    <v-chip
-                      :color="getValueColor(item.value)"
-                      variant="flat"
-                      size="small"
-                    >
-                      {{ item.value }}
-                    </v-chip>
-                  </template>
-                  <template #item.status="{ item }">
-                    <v-chip
-                      :color="getStatusColor(item.status)"
-                      variant="tonal"
-                      size="small"
-                    >
-                      {{ item.status }}
-                    </v-chip>
+                  <template #item="{ item }">
+                    <tr :class="getRowClass(item)" @click="toggleSelection(item.id)" style="cursor: pointer">
+                      <td>{{ item.name }}</td>
+                      <td>{{ item.category }}</td>
+                      <td>
+                        <v-chip :color="getValueColor(item.value)" variant="flat" size="small">
+                          {{ item.value }}
+                        </v-chip>
+                      </td>
+                      <td>
+                        <v-chip :color="getStatusColor(item.status)" variant="tonal" size="small">
+                          {{ item.status }}
+                        </v-chip>
+                      </td>
+                      <td>{{ item.description }}</td>
+                    </tr>
                   </template>
                 </v-data-table>
               </v-card-text>
@@ -62,28 +57,17 @@
 </template>
 
 <script lang="ts" setup>
+import { computed, ref } from 'vue'
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
 import { BarChart } from 'echarts/charts'
-import {
-  TitleComponent,
-  TooltipComponent,
-  GridComponent,
-  LegendComponent
-} from 'echarts/components'
+import { TitleComponent, TooltipComponent, GridComponent, LegendComponent } from 'echarts/components'
 import VChart from 'vue-echarts'
 import { useI18n } from 'vue-i18n'
 import type { DataTableHeader } from 'vuetify'
 
 // 註冊 ECharts 組件
-use([
-  CanvasRenderer,
-  BarChart,
-  TitleComponent,
-  TooltipComponent,
-  GridComponent,
-  LegendComponent
-])
+use([CanvasRenderer, BarChart, TitleComponent, TooltipComponent, GridComponent, LegendComponent])
 
 const { t } = useI18n()
 
@@ -190,75 +174,96 @@ const headers = computed<DataTableHeader[]>(() => [
 ])
 
 // 長條圖配置
-const barChartOption = computed(() => ({
-  title: {
-    text: t('chartTable.chartSubtitle'),
-    left: 'center',
-    textStyle: {
-      fontSize: 16
-    }
-  },
-  tooltip: {
-    trigger: 'axis',
-    axisPointer: {
-      type: 'shadow'
+const selectedItemId = ref<number | null>(null)
+
+const getBaseBarColor = (value: number) => {
+  if (value >= 200) return '#4caf50' // 綠色 - 高
+  if (value >= 150) return '#2196f3' // 藍色 - 中高
+  if (value >= 100) return '#ff9800' // 橙色 - 中
+  return '#f44336' // 紅色 - 低
+}
+
+const barChartOption = computed(() => {
+  const activeId = selectedItemId.value
+
+  return {
+    title: {
+      text: t('chartTable.chartSubtitle'),
+      left: 'center',
+      textStyle: {
+        fontSize: 16
+      }
     },
-    formatter: (params: any) => {
-      const data = params[0]
-      return `${data.name}<br/>${data.seriesName}: ${data.value}`
-    }
-  },
-  grid: {
-    left: '3%',
-    right: '4%',
-    bottom: '3%',
-    containLabel: true
-  },
-  xAxis: {
-    type: 'category',
-    data: tableData.value.map(item => item.name),
-    axisLabel: {
-      rotate: 45,
-      interval: 0,
-      fontSize: 10
-    }
-  },
-  yAxis: {
-    type: 'value',
-    name: t('chartTable.yAxisLabel')
-  },
-  series: [
-    {
-      name: t('chartTable.seriesName'),
-      type: 'bar',
-      data: tableData.value.map(item => item.value),
-      itemStyle: {
-        color: (params: any) => {
-          const value = params.value
-          if (value >= 200) return '#4caf50' // 綠色 - 高
-          if (value >= 150) return '#2196f3' // 藍色 - 中高
-          if (value >= 100) return '#ff9800' // 橙色 - 中
-          return '#f44336' // 紅色 - 低
-        }
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
       },
-      emphasis: {
-        itemStyle: {
-          shadowBlur: 10,
-          shadowOffsetX: 0,
-          shadowColor: 'rgba(0, 0, 0, 0.5)'
+      formatter: (params: any) => {
+        const data = params[0]
+        return `${data.name}<br/>${data.seriesName}: ${data.value}`
+      }
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis: {
+      type: 'category',
+      data: tableData.value.map(item => item.name),
+      axisLabel: {
+        rotate: 45,
+        interval: 0,
+        fontSize: 10
+      }
+    },
+    yAxis: {
+      type: 'value',
+      name: t('chartTable.yAxisLabel')
+    },
+    series: [
+      {
+        name: t('chartTable.seriesName'),
+        type: 'bar',
+        data: tableData.value.map(item => ({
+          value: item.value,
+          name: item.name,
+          itemStyle: {
+            color: activeId === null || item.id === activeId ? getBaseBarColor(item.value) : '#d6d6d6'
+          }
+        })),
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+          }
         }
       }
-    }
-  ]
-}))
+    ]
+  }
+})
 
 // 圖表點擊事件
 const onChartClick = (params: any) => {
   if (params.componentType === 'series') {
     const item = tableData.value[params.dataIndex]
-    console.log('點擊了:', item)
-    // 可以在這裡添加更多互動功能，例如高亮表格行
+    if (!item) return
+    selectedItemId.value = item.id === selectedItemId.value ? null : item.id
   }
+}
+
+// 切換選取狀態
+const toggleSelection = (id: number) => {
+  selectedItemId.value = id === selectedItemId.value ? null : id
+}
+
+const getRowClass = (item: TableItem | undefined) => {
+  if (!item) return ''
+  if (selectedItemId.value === null) return ''
+  return item.id === selectedItemId.value ? 'selected-row' : 'dimmed-row'
 }
 
 // 根據數值返回顏色
@@ -297,5 +302,14 @@ const getStatusColor = (status: string) => {
   font-weight: 600;
   background-color: rgba(var(--v-theme-primary), 0.05);
 }
-</style>
 
+:deep(.v-data-table .selected-row) {
+  background-color: rgba(var(--v-theme-primary), 0.15) !important;
+  transition: background-color 0.2s ease;
+}
+
+:deep(.v-data-table .dimmed-row) {
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+}
+</style>
