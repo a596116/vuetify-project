@@ -20,13 +20,13 @@ export default {
     previous: 'Previous',
     select: 'Select',
     selectFile: 'Select File',
-    openDialog: 'Open Dialog',
+    openDialog: 'Open Dialog'
   },
   menu: {
     home: 'Home',
     charts: 'Charts',
     chartTable: 'Chart & Table',
-    i18nDemo: 'i18n Demo',
+    i18nDemo: 'i18n Demo'
   },
   table: {
     title: 'Table',
@@ -37,20 +37,20 @@ export default {
     count: 'Count',
     status: 'Status',
     noData: 'No Data',
-    rowsPerPage: 'Rows per page',
+    rowsPerPage: 'Rows per page'
   },
   message: {
     success: 'Operation Successful',
     error: 'Operation Failed',
     confirm: 'Are you sure you want to proceed?',
-    deleteConfirm: 'Are you sure you want to delete?',
+    deleteConfirm: 'Are you sure you want to delete?'
   },
   charts: {
     title: 'Charts Demo',
     barChart: 'Bar Chart',
     pieChart: 'Pie Chart',
     lineChart: 'Line Chart',
-    radarChart: 'Radar Chart',
+    radarChart: 'Radar Chart'
   },
   chartTable: {
     title: 'Product Sales Data Analysis',
@@ -64,8 +64,7 @@ export default {
       category: 'Product Category',
       value: 'Sales Quantity',
       status: 'Sales Status',
-      description: 'Product Description',
-    },
-  },
+      description: 'Product Description'
+    }
+  }
 }
-

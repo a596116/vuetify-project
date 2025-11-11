@@ -22,8 +22,8 @@ const vuetify = createVuetify({
   locale: {
     locale: 'zhHant',
     fallback: 'zhHant',
-    messages: { zhHant, en },
-  },
+    messages: { zhHant, en }
+  }
 })
 
 export default vuetify

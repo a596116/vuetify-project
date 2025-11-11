@@ -1,10 +1,10 @@
 <template>
   <v-container fluid>
     <v-card>
-      <v-card-title class="text-h5 pa-4">
+      <v-card-title class="!p-4 !text-3xl text-hd-primary">
         {{ t('table.title') }}
       </v-card-title>
-      <v-card-text class="d-flex justify-end pa-2">
+      <v-card-text class="justify-end d-flex pa-2">
         <v-btn variant="outlined" @click="toggleExpandAll">
           {{ isAllExpanded ? t('table.collapseAll') : t('table.expandAll') }}
         </v-btn>
@@ -19,6 +19,8 @@
         show-expand
         hide-default-footer
         expand-on-click
+        fixed-header
+        height="600"
       >
         <template #item.data-table-expand="{ item, props }">
           <v-btn v-if="hasChildren(getRawItem(item))" v-bind="normalizeExpandButtonProps(props)" />

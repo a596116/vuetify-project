@@ -20,13 +20,13 @@ export default {
     previous: '上一步',
     select: '選擇',
     selectFile: '選擇文件',
-    openDialog: '打開對話框',
+    openDialog: '打開對話框'
   },
   menu: {
     home: '首頁',
     charts: '圖表展示',
     chartTable: '圖表與表格',
-    i18nDemo: '多語系示範',
+    i18nDemo: '多語系示範'
   },
   table: {
     title: '表格',
@@ -37,20 +37,20 @@ export default {
     count: '數量',
     status: '狀態',
     noData: '暫無資料',
-    rowsPerPage: '每頁筆數',
+    rowsPerPage: '每頁筆數'
   },
   message: {
     success: '操作成功',
     error: '操作失敗',
     confirm: '確定要執行此操作嗎？',
-    deleteConfirm: '確定要刪除嗎？',
+    deleteConfirm: '確定要刪除嗎？'
   },
   charts: {
     title: '圖表展示',
     barChart: '長條圖',
     pieChart: '圓餅圖',
     lineChart: '折線圖',
-    radarChart: '雷達圖',
+    radarChart: '雷達圖'
   },
   chartTable: {
     title: '產品銷售數據分析',
@@ -64,8 +64,7 @@ export default {
       category: '產品類別',
       value: '銷售數量',
       status: '銷售狀態',
-      description: '產品描述',
-    },
-  },
+      description: '產品描述'
+    }
+  }
 }
-
