@@ -72,8 +72,10 @@
     "title": "Operating System Usage Statistics",
     "subtitle": "User Data Analysis by Platform",
     "unit": "Unit",
-    "trendChart": "Monthly Trend Chart",
+    "trendChart": "Monthly Trend Line Chart",
+    "distributionChart": "OS Distribution Bar Chart",
     "chartTitle": "Platform Usage Trends",
+    "barChartTitle": "Monthly Usage by Operating System",
     "headers": {
       "os": "Operating System"
     },

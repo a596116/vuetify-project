@@ -72,8 +72,10 @@
     "title": "操作系統使用統計",
     "subtitle": "各平台使用者數據分析",
     "unit": "單位",
-    "trendChart": "月度趨勢圖",
+    "trendChart": "月度趨勢折線圖",
+    "distributionChart": "操作系統分布柱狀圖",
     "chartTitle": "各平台使用趨勢",
+    "barChartTitle": "各操作系統月度使用量",
     "headers": {
       "os": "操作系統"
     },

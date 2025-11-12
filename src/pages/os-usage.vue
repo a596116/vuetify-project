@@ -15,6 +15,7 @@
       </v-card-subtitle>
 
       <v-card-text>
+        <!-- 資料表格 -->
         <v-data-table
           :headers="computedHeaders"
           :items="tableItems"
@@ -40,12 +41,12 @@
           <!-- 自定義數據單元格 -->
           <template v-for="col in columns" :key="col.key" #[`item.${col.key}`]="{ item }">
             <v-chip
-              :color="getCellColor(item.key, item[col.key])"
+              :color="getCellColor(item.key, Number(item[col.key as keyof typeof item]))"
               variant="flat"
               size="small"
               class="font-weight-medium"
             >
-              {{ formatNumber(item[col.key]) }}
+              {{ formatNumber(Number(item[col.key as keyof typeof item])) }}
             </v-chip>
           </template>
         </v-data-table>
@@ -63,13 +64,28 @@
           </v-col>
         </v-row>
 
-        <!-- 月度趨勢圖 -->
-        <v-card variant="outlined" class="mt-6">
-          <v-card-title>{{ t('osUsage.trendChart') }}</v-card-title>
-          <v-card-text>
-            <v-chart :option="lineChartOption" :style="{ height: '400px' }" autoresize />
-          </v-card-text>
-        </v-card>
+        <!-- 圖表區域 -->
+        <v-row class="mt-6">
+          <!-- 月度趨勢折線圖 -->
+          <v-col cols="12" md="6">
+            <v-card variant="outlined">
+              <v-card-title>{{ t('osUsage.trendChart') }}</v-card-title>
+              <v-card-text>
+                <v-chart :option="lineChartOption" :style="{ height: '400px' }" autoresize />
+              </v-card-text>
+            </v-card>
+          </v-col>
+
+          <!-- 操作系統分布柱狀圖 -->
+          <v-col cols="12" md="6">
+            <v-card variant="outlined">
+              <v-card-title>{{ t('osUsage.distributionChart') }}</v-card-title>
+              <v-card-text>
+                <v-chart :option="barChartOption" :style="{ height: '400px' }" autoresize />
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-card-text>
     </v-card>
   </v-container>
@@ -79,14 +95,15 @@
 import { computed } from 'vue'
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
-import { LineChart } from 'echarts/charts'
+import { LineChart, BarChart } from 'echarts/charts'
 import { TitleComponent, TooltipComponent, GridComponent, LegendComponent } from 'echarts/components'
 import VChart from 'vue-echarts'
 import { useI18n } from 'vue-i18n'
 import type { DataTableHeader } from 'vuetify'
+import type { ECBasicOption } from 'echarts/types/dist/shared'
 
 // 註冊 ECharts 組件
-use([CanvasRenderer, LineChart, TitleComponent, TooltipComponent, GridComponent, LegendComponent])
+use([CanvasRenderer, LineChart, BarChart, TitleComponent, TooltipComponent, GridComponent, LegendComponent])
 
 const { t } = useI18n()
 
@@ -125,26 +142,25 @@ const rows: Row[] = [
 ]
 
 const columns: Column[] = [
-  { key: 'M1', label: '1月' },
-  { key: 'M2', label: '2月' },
-  { key: 'M3', label: '3月' },
-  { key: 'M4', label: '4月' }
+  { key: 'M1', label: 'M1' },
+  { key: 'M2', label: 'M2' },
+  { key: 'M3', label: 'M3' }
 ]
 
 const data: DataRow[] = [
-  { rowKey: 'windows', M1: 120, M2: 180, M3: 90, M4: 110 },
-  { rowKey: 'linux', M1: 60, M2: 70, M3: 50, M4: 65 },
-  { rowKey: 'macos', M1: 90, M2: 95, M3: 100, M4: 80 },
-  { rowKey: 'ios', M1: 200, M2: 210, M3: 190, M4: 220 },
-  { rowKey: 'android', M1: 310, M2: 330, M3: 320, M4: 340 },
-  { rowKey: 'web', M1: 150, M2: 140, M3: 160, M4: 170 },
-  { rowKey: 'other', M1: 20, M2: 10, M3: 15, M4: 18 },
-  { rowKey: 'total', M1: 950, M2: 1035, M3: 925, M4: 1003 }
+  { rowKey: 'windows', M1: 120, M2: 180, M3: 90 },
+  { rowKey: 'linux', M1: 60, M2: 70, M3: 50 },
+  { rowKey: 'macos', M1: 90, M2: 95, M3: 100 },
+  { rowKey: 'ios', M1: 200, M2: 210, M3: 190 },
+  { rowKey: 'android', M1: 310, M2: 330, M3: 320 },
+  { rowKey: 'web', M1: 150, M2: 140, M3: 160 },
+  { rowKey: 'other', M1: 20, M2: 10, M3: 15 },
+  { rowKey: 'total', M1: 950, M2: 1035, M3: 925 }
 ]
 
 const meta: Meta = {
-  unit: '人數',
-  period: '2025',
+  unit: '使用次數',
+  period: '2025 Q1',
   dataSource: 'os_usage'
 }
 
@@ -209,15 +225,15 @@ const formatNumber = (value: number | undefined) => {
 
 // 統計摘要
 const statistics = computed(() => {
-  const totalUsers = (data.find(d => d.rowKey === 'total')?.M4 as number) || 0
+  const totalUsers = (data.find(d => d.rowKey === 'total')?.M3 as number) || 0
   const mobileUsers =
-    ((data.find(d => d.rowKey === 'ios')?.M4 as number) || 0) +
-    ((data.find(d => d.rowKey === 'android')?.M4 as number) || 0)
+    ((data.find(d => d.rowKey === 'ios')?.M3 as number) || 0) +
+    ((data.find(d => d.rowKey === 'android')?.M3 as number) || 0)
   const desktopUsers =
-    ((data.find(d => d.rowKey === 'windows')?.M4 as number) || 0) +
-    ((data.find(d => d.rowKey === 'linux')?.M4 as number) || 0) +
-    ((data.find(d => d.rowKey === 'macos')?.M4 as number) || 0)
-  const webUsers = (data.find(d => d.rowKey === 'web')?.M4 as number) || 0
+    ((data.find(d => d.rowKey === 'windows')?.M3 as number) || 0) +
+    ((data.find(d => d.rowKey === 'linux')?.M3 as number) || 0) +
+    ((data.find(d => d.rowKey === 'macos')?.M3 as number) || 0)
+  const webUsers = (data.find(d => d.rowKey === 'web')?.M3 as number) || 0
 
   return [
     {
@@ -248,7 +264,7 @@ const statistics = computed(() => {
 })
 
 // 折線圖配置
-const lineChartOption = computed(() => {
+const lineChartOption = computed<ECBasicOption>(() => {
   // 排除 total 行
   const dataWithoutTotal = data.filter(d => d.rowKey !== 'total')
 
@@ -296,6 +312,61 @@ const lineChartOption = computed(() => {
         emphasis: {
           focus: 'series'
         }
+      }
+    })
+  }
+})
+
+// 柱狀圖配置 - 顯示各操作系統在不同月份的分布
+const barChartOption = computed<ECBasicOption>(() => {
+  // 排除 total 行
+  const dataWithoutTotal = data.filter(d => d.rowKey !== 'total')
+
+  return {
+    title: {
+      text: t('osUsage.barChartTitle'),
+      left: 'center',
+      textStyle: {
+        fontSize: 16
+      }
+    },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
+    legend: {
+      data: columns.map(col => col.label),
+      bottom: 10
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '12%',
+      containLabel: true
+    },
+    xAxis: {
+      type: 'category',
+      data: rows.filter(r => r.key !== 'total').map(r => r.label),
+      axisLabel: {
+        rotate: 30,
+        interval: 0
+      }
+    },
+    yAxis: {
+      type: 'value',
+      name: meta.unit
+    },
+    series: columns.map(col => {
+      return {
+        name: col.label,
+        type: 'bar',
+        data: dataWithoutTotal.map(dataRow => dataRow[col.key]),
+        emphasis: {
+          focus: 'series'
+        }
+        // stack: 'total'
       }
     })
   }
