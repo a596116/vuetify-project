@@ -29,6 +29,12 @@ export const routes = [
         name: 'os-usage',
         component: () => import('@/pages/os-usage.vue'),
         meta: { title: '操作系統統計' }
+      },
+      {
+        path: '/kpi-overview',
+        name: 'kpi-overview',
+        component: () => import('@/pages/kpi-overview.vue'),
+        meta: { title: 'KPI 總覽' }
       }
     ]
   }

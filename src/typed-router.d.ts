@@ -21,6 +21,7 @@ declare module 'vue-router/auto-routes' {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/chart-table': RouteRecordInfo<'/chart-table', '/chart-table', Record<never, never>, Record<never, never>>,
     '/charts': RouteRecordInfo<'/charts', '/charts', Record<never, never>, Record<never, never>>,
+    '/kpi-overview': RouteRecordInfo<'/kpi-overview', '/kpi-overview', Record<never, never>, Record<never, never>>,
     '/os-usage': RouteRecordInfo<'/os-usage', '/os-usage', Record<never, never>, Record<never, never>>,
   }
 
@@ -45,6 +46,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/charts.vue': {
       routes: '/charts'
+      views: never
+    }
+    'src/pages/kpi-overview.vue': {
+      routes: '/kpi-overview'
       views: never
     }
     'src/pages/os-usage.vue': {

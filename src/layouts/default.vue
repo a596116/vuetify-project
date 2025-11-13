@@ -70,6 +70,11 @@ const menuItems = computed(() => [
     title: t('menu.osUsage'),
     path: '/os-usage',
     icon: 'mdi-monitor-dashboard'
+  },
+  {
+    title: t('menu.kpiOverview'),
+    path: '/kpi-overview',
+    icon: 'mdi-view-dashboard-outline'
   }
 ])
 

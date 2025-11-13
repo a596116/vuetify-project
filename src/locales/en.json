@@ -27,6 +27,7 @@
     "charts": "Charts",
     "chartTable": "Chart & Table",
     "osUsage": "OS Statistics",
+    "kpiOverview": "KPI Overview",
     "i18nDemo": "i18n Demo"
   },
   "table": {
@@ -86,6 +87,42 @@
       "desktop": "Desktop Systems",
       "web": "Web Platform",
       "ofTotal": "of Total"
+    }
+  },
+  "kpiOverview": {
+    "tabs": {
+      "kpi": "KPI Metrics",
+      "osData": "System Data"
+    },
+    "kpi": {
+      "title": "Key Performance Indicators",
+      "expandAll": "Expand All",
+      "collapseAll": "Collapse All",
+      "headers": {
+        "indicator": "Indicator",
+        "target": "Target",
+        "actual": "Actual",
+        "achievement": "Achievement",
+        "trend": "Trend"
+      }
+    },
+    "osData": {
+      "title": "Operating System Usage Statistics",
+      "tableTitle": "Monthly User Data",
+      "chartTitle": "Trend Analysis",
+      "summaryTitle": "Platform Data Overview",
+      "headers": {
+        "platform": "Platform"
+      },
+      "summaryHeaders": {
+        "platform": "Platform Name",
+        "category": "Category",
+        "users": "Users",
+        "sessions": "Sessions",
+        "avgDuration": "Avg Duration",
+        "status": "Status",
+        "change": "Change Rate"
+      }
     }
   }
 }
