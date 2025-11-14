@@ -28,6 +28,8 @@
     "chartTable": "Chart & Table",
     "osUsage": "OS Statistics",
     "kpiOverview": "KPI Overview",
+    "notificationDemo": "Notification Demo",
+    "componentsDemo": "Components Demo",
     "i18nDemo": "i18n Demo"
   },
   "table": {
@@ -124,5 +126,8 @@
         "change": "Change Rate"
       }
     }
+  },
+  "notificationDemo": {
+    "title": "Notification Component Demo"
   }
 }

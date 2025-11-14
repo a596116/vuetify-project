@@ -31,19 +31,20 @@
       </template>
     </v-navigation-drawer>
 
-    <v-main class="flex overflow-hidden relative">
+    <v-main class="flex overflow-hidden relative w-full">
       <!-- <router-view #default="{ Component }" class="flex-1">
         <Transition appear name="fade-slide" mode="out-in">
           <component :is="Component" class="overflow-hidden absolute h-full w-fit" />
         </Transition>
       </router-view> -->
-      <router-view class="!overflow-auto !h-full" />
+      <router-view class="!overflow-auto !h-full w-full" />
     </v-main>
   </v-layout>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
 
@@ -75,6 +76,16 @@ const menuItems = computed(() => [
     title: t('menu.kpiOverview'),
     path: '/kpi-overview',
     icon: 'mdi-view-dashboard-outline'
+  },
+  {
+    title: t('menu.notificationDemo'),
+    path: '/notification-demo',
+    icon: 'mdi-bell-outline'
+  },
+  {
+    title: t('menu.componentsDemo'),
+    path: '/components-demo',
+    icon: 'mdi-puzzle'
   }
 ])
 

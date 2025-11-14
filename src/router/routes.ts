@@ -35,6 +35,18 @@ export const routes = [
         name: 'kpi-overview',
         component: () => import('@/pages/kpi-overview.vue'),
         meta: { title: 'KPI 總覽' }
+      },
+      {
+        path: '/notification-demo',
+        name: 'notification-demo',
+        component: () => import('@/pages/notification-demo.vue'),
+        meta: { title: '通知組件示範' }
+      },
+      {
+        path: '/components-demo',
+        name: 'components-demo',
+        component: () => import('@/pages/components-demo.vue'),
+        meta: { title: '組件展示' }
       }
     ]
   }
