@@ -23,6 +23,11 @@
     "openDialog": "Open Dialog",
     "visitCount": "Visit Count"
   },
+  "user": {
+    "profile": "Profile",
+    "settings": "Settings",
+    "role": "Administrator"
+  },
   "menu": {
     "home": "Home",
     "charts": "Charts",

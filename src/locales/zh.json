@@ -23,6 +23,11 @@
     "openDialog": "打開對話框",
     "visitCount": "訪問次數"
   },
+  "user": {
+    "profile": "個人資料",
+    "settings": "設定",
+    "role": "管理員"
+  },
   "menu": {
     "home": "首頁",
     "charts": "圖表展示",

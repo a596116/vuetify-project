@@ -1,13 +1,13 @@
 <template>
   <v-navigation-drawer :rail="appStore.rail" permanent>
     <template #prepend>
-      <div class="h-[64px] flex items-center justify-center">
+      <Anchor to="/" class="h-[64px] flex items-center justify-center">
         <v-list-item :title="t('common.appTitle')">
           <template #prepend>
             <v-img src="/favicon.ico" width="32" height="32" class="mr-2"></v-img>
           </template>
         </v-list-item>
-      </div>
+      </Anchor>
     </template>
 
     <v-list density="compact" nav>

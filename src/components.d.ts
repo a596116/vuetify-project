@@ -11,8 +11,10 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Anchor: typeof import('./components/Anchor.vue')['default']
     AppBar: typeof import('./components/Layout/AppBar.vue')['default']
     AppFooter: typeof import('./components/AppFooter.vue')['default']
+    Breadcrumbs: typeof import('./components/Layout/Breadcrumbs.vue')['default']
     Drawer: typeof import('./components/Drawer.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     Input: typeof import('./components/Input.vue')['default']
@@ -24,5 +26,6 @@ declare module 'vue' {
     Notification: typeof import('./components/Notification.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UserInfo: typeof import('./components/Layout/UserInfo.vue')['default']
   }
 }
