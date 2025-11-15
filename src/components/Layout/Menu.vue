@@ -2,7 +2,7 @@
   <v-navigation-drawer :rail="appStore.rail" permanent>
     <template #prepend>
       <Anchor to="/" class="h-[64px] flex items-center justify-center">
-        <v-list-item :title="t('common.appTitle')">
+        <v-list-item :title="appStore.rail ? '' : t('common.appTitle')" class="px-3">
           <template #prepend>
             <v-img src="/favicon.ico" width="32" height="32" class="mr-2"></v-img>
           </template>
