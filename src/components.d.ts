@@ -11,10 +11,14 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AppBar: typeof import('./components/Layout/AppBar.vue')['default']
     AppFooter: typeof import('./components/AppFooter.vue')['default']
     Drawer: typeof import('./components/Drawer.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
-    LanguageSwitcher: typeof import('./components/LanguageSwitcher.vue')['default']
+    Input: typeof import('./components/Input.vue')['default']
+    LanguageSwitcher: typeof import('./components/Layout/LanguageSwitcher.vue')['default']
+    Loading: typeof import('./components/Loading.vue')['default']
+    Menu: typeof import('./components/Layout/Menu.vue')['default']
     Message: typeof import('./components/Message.vue')['default']
     MessageBox: typeof import('./components/MessageBox.vue')['default']
     Notification: typeof import('./components/Notification.vue')['default']

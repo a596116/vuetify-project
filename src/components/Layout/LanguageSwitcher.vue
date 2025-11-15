@@ -1,13 +1,7 @@
 <template>
   <v-menu>
     <template #activator="{ props }">
-      <v-btn
-        v-bind="props"
-        variant="outlined"
-        prepend-icon="mdi-translate"
-      >
-        {{ currentLanguageName }}
-      </v-btn>
+      <v-btn v-bind="props" icon="mdi-translate" rounded="lg"> </v-btn>
     </template>
     <v-list>
       <v-list-item
@@ -27,13 +21,15 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useLocale } from 'vuetify'
 import { setLocale, getVuetifyLocale, type LocaleType } from '@/plugins/i18n'
+import getPageTitle from '@/utils/getPageTitle'
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
+const route = useRoute()
 const vuetifyLocale = useLocale()
 
 const languages = [
   { label: '繁體中文', value: 'zh-TW' as LocaleType },
-  { label: 'English', value: 'en-US' as LocaleType },
+  { label: 'English', value: 'en-US' as LocaleType }
 ]
 
 const currentLocale = computed(() => locale.value as LocaleType)
@@ -48,6 +44,7 @@ function changeLanguage(newLocale: LocaleType) {
   setLocale(newLocale)
   // 切換 Vuetify 語言
   vuetifyLocale.current.value = getVuetifyLocale(newLocale)
+
+  document.title = getPageTitle(t(route.meta.i18nKey as string))
 }
 </script>
-

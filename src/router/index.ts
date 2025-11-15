@@ -7,6 +7,8 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from './routes'
+import i18n from '@/plugins/i18n'
+import getPageTitle from '@/utils/getPageTitle'
 // import { setupLayouts } from 'virtual:generated-layouts'
 // import { routes } from 'vue-router/auto-routes'
 
@@ -47,7 +49,7 @@ router.isReady().then(() => {
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title as string
+  document.title = getPageTitle(i18n.global.t(to.meta.i18nKey as string))
   next()
 })
 

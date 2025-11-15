@@ -43,6 +43,7 @@ export function setLocale(locale: LocaleType) {
   // 切換 vue-i18n 語言
   i18n.global.locale.value = locale
   localStorage.setItem('locale', locale)
+  // document.title = getPageTitle(i18n.global.t(useRoute().meta.i18nKey as string))
 
   // 嘗試切換 Vuetify 語言（如果在 Vue 組件上下文中）
   try {

@@ -21,8 +21,10 @@ declare module 'vue-router/auto-routes' {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/chart-table': RouteRecordInfo<'/chart-table', '/chart-table', Record<never, never>, Record<never, never>>,
     '/charts': RouteRecordInfo<'/charts', '/charts', Record<never, never>, Record<never, never>>,
-    '/components-demo': RouteRecordInfo<'/components-demo', '/components-demo', Record<never, never>, Record<never, never>>,
+    '/drawer-demo': RouteRecordInfo<'/drawer-demo', '/drawer-demo', Record<never, never>, Record<never, never>>,
+    '/input-demo': RouteRecordInfo<'/input-demo', '/input-demo', Record<never, never>, Record<never, never>>,
     '/kpi-overview': RouteRecordInfo<'/kpi-overview', '/kpi-overview', Record<never, never>, Record<never, never>>,
+    '/loading-demo': RouteRecordInfo<'/loading-demo', '/loading-demo', Record<never, never>, Record<never, never>>,
     '/notification-demo': RouteRecordInfo<'/notification-demo', '/notification-demo', Record<never, never>, Record<never, never>>,
     '/os-usage': RouteRecordInfo<'/os-usage', '/os-usage', Record<never, never>, Record<never, never>>,
   }
@@ -50,12 +52,20 @@ declare module 'vue-router/auto-routes' {
       routes: '/charts'
       views: never
     }
-    'src/pages/components-demo.vue': {
-      routes: '/components-demo'
+    'src/pages/drawer-demo.vue': {
+      routes: '/drawer-demo'
+      views: never
+    }
+    'src/pages/input-demo.vue': {
+      routes: '/input-demo'
       views: never
     }
     'src/pages/kpi-overview.vue': {
       routes: '/kpi-overview'
+      views: never
+    }
+    'src/pages/loading-demo.vue': {
+      routes: '/loading-demo'
       views: never
     }
     'src/pages/notification-demo.vue': {

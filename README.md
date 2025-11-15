@@ -35,6 +35,51 @@ After completing the installation, your environment is ready for Vuetify develop
 
 These features are curated to provide a seamless development experience from setup to deployment, ensuring that your Vuetify application is both powerful and maintainable.
 
+## 🎨 自訂組件
+
+本專案包含多個開箱即用的自訂組件：
+
+### Loading 組件
+- ✅ 全屏 Loading
+- ✅ 區域 Loading (inline 模式)
+- ✅ 支援 `<Loading />` 組件直接使用
+- ✅ 支援 `v-loading` directive
+- 📖 詳細文檔：[LOADING_GUIDE.md](./LOADING_GUIDE.md)
+- 🎮 示範頁面：`/components-demo` (Loading 載入 tab)
+
+### Input 組件 (Element Plus 風格)
+- ✅ 基礎輸入框
+- ✅ 一鍵清空、密碼框
+- ✅ 帶圖標的輸入框
+- ✅ 文本域、複合型輸入框
+- ✅ 多種尺寸、輸入長度限制
+- 📖 詳細文檔：[INPUT_GUIDE.md](./INPUT_GUIDE.md)
+- 🎮 示範頁面：`/components-demo` (Input 輸入框 tab)
+
+### Notification 組件
+- ✅ 多種通知類型（success, warning, info, error）
+- ✅ 可自訂位置
+- ✅ 支援 `useNotification` composable
+- 📖 詳細文檔：[NOTIFICATION_GUIDE.md](./NOTIFICATION_GUIDE.md)
+- 🎮 示範頁面：`/notification-demo`
+
+### Message 組件
+- ✅ 輕量級消息提示
+- ✅ 支援 `useMessage` composable
+
+### MessageBox 組件
+- ✅ 對話框提示
+- ✅ 支援 `useMessageBox` composable
+
+### 國際化 (i18n)
+- ✅ 支援多語言切換
+- ✅ 內建繁體中文和英文
+- 📖 詳細文檔：[I18N_SETUP.md](./I18N_SETUP.md)
+
+### 圖表組件
+- ✅ 整合 ECharts
+- 📖 詳細文檔：[ECHARTS_SETUP.md](./ECHARTS_SETUP.md)
+
 ## 💡 Usage
 
 This section covers how to start the development server and build your project for production.

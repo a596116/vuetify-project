@@ -20,7 +20,8 @@
     "previous": "Previous",
     "select": "Select",
     "selectFile": "Select File",
-    "openDialog": "Open Dialog"
+    "openDialog": "Open Dialog",
+    "visitCount": "Visit Count"
   },
   "menu": {
     "home": "Home",
@@ -29,8 +30,11 @@
     "osUsage": "OS Statistics",
     "kpiOverview": "KPI Overview",
     "notificationDemo": "Notification Demo",
-    "componentsDemo": "Components Demo",
-    "i18nDemo": "i18n Demo"
+    "drawerDemo": "Drawer",
+    "loadingDemo": "Loading",
+    "inputDemo": "Input",
+    "i18nDemo": "i18n Demo",
+    "componentsDemo": "Components Demo"
   },
   "table": {
     "title": "Table",

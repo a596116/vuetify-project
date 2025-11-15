@@ -2,78 +2,69 @@
   <div class="w-full h-full">
     <v-container fluid class="w-full pa-6">
       <v-card flat class="rounded-lg">
-        <v-card-title class="text-h5 pa-6"> 組件展示 </v-card-title>
+        <v-card-title class="text-h5 pa-6"> Drawer 抽屜 </v-card-title>
 
         <v-card-text class="pa-6">
-          <v-tabs v-model="activeTab" bg-color="grey-lighten-4" class="mb-6">
-            <v-tab value="drawer">Drawer 抽屜</v-tab>
-          </v-tabs>
+          <div class="mb-4 text-body-2 text-grey-darken-1">
+            Drawer 組件支持從四個方向（上、下、左、右）打開抽屜，可以自定義寬度、高度和樣式
+          </div>
 
-          <v-window v-model="activeTab">
-            <!-- Drawer 組件展示 -->
-            <v-window-item value="drawer">
+          <!-- 基本用法 -->
+          <div class="mb-10">
+            <div class="mb-4 section-title">基本用法</div>
+            <v-card variant="outlined" class="rounded-lg pa-6">
+              <div class="mb-6">
+                <div class="mb-3 text-subtitle-2 font-weight-bold">四個方向</div>
+                <div class="flex-wrap gap-3 d-flex">
+                  <v-btn color="primary" @click="showLeft = true">
+                    <v-icon start>mdi-menu-open</v-icon>
+                    左側抽屜
+                  </v-btn>
+                  <v-btn color="primary" @click="showRight = true">
+                    <v-icon start>mdi-menu</v-icon>
+                    右側抽屜
+                  </v-btn>
+                  <v-btn color="primary" @click="showTop = true">
+                    <v-icon start>mdi-chevron-up</v-icon>
+                    頂部抽屜
+                  </v-btn>
+                  <v-btn color="primary" @click="showBottom = true">
+                    <v-icon start>mdi-chevron-down</v-icon>
+                    底部抽屜
+                  </v-btn>
+                </div>
+              </div>
+            </v-card>
+          </div>
+
+          <!-- 自定義尺寸 -->
+          <div class="mb-10">
+            <div class="mb-4 section-title">自定義尺寸</div>
+            <v-card variant="outlined" class="rounded-lg pa-6">
+              <div class="mb-6">
+                <div class="mb-3 text-subtitle-2 font-weight-bold">不同寬度和高度</div>
+                <div class="flex-wrap gap-3 d-flex">
+                  <v-btn color="success" @click="showCustomLeft = true"> 寬 500px 左側抽屜 </v-btn>
+                  <v-btn color="success" @click="showCustomRight = true"> 寬 400px 右側抽屜 </v-btn>
+                  <v-btn color="success" @click="showCustomTop = true"> 高 300px 頂部抽屜 </v-btn>
+                  <v-btn color="success" @click="showCustomBottom = true"> 高 500px 底部抽屜 </v-btn>
+                </div>
+              </div>
+            </v-card>
+          </div>
+
+          <!-- 持久模式 -->
+          <div class="mb-10">
+            <div class="mb-4 section-title">持久模式</div>
+            <v-card variant="outlined" class="rounded-lg pa-6">
               <div class="mb-4 text-body-2 text-grey-darken-1">
-                Drawer 組件支持從四個方向（上、下、左、右）打開抽屜，可以自定義寬度、高度和樣式
+                設置 <code>persistent</code> 為 <code>true</code> 時，點擊遮罩層不會關閉抽屜
               </div>
-
-              <!-- 基本用法 -->
-              <div class="mb-10">
-                <div class="mb-4 section-title">基本用法</div>
-                <v-card variant="outlined" class="rounded-lg pa-6">
-                  <div class="mb-6">
-                    <div class="mb-3 text-subtitle-2 font-weight-bold">四個方向</div>
-                    <div class="flex-wrap gap-3 d-flex">
-                      <v-btn color="primary" @click="showLeft = true">
-                        <v-icon start>mdi-menu-open</v-icon>
-                        左側抽屜
-                      </v-btn>
-                      <v-btn color="primary" @click="showRight = true">
-                        <v-icon start>mdi-menu</v-icon>
-                        右側抽屜
-                      </v-btn>
-                      <v-btn color="primary" @click="showTop = true">
-                        <v-icon start>mdi-chevron-up</v-icon>
-                        頂部抽屜
-                      </v-btn>
-                      <v-btn color="primary" @click="showBottom = true">
-                        <v-icon start>mdi-chevron-down</v-icon>
-                        底部抽屜
-                      </v-btn>
-                    </div>
-                  </div>
-                </v-card>
+              <div class="flex-wrap gap-3 d-flex">
+                <v-btn color="warning" @click="showPersistent = true"> 持久模式抽屜 </v-btn>
               </div>
-
-              <!-- 自定義尺寸 -->
-              <div class="mb-10">
-                <div class="mb-4 section-title">自定義尺寸</div>
-                <v-card variant="outlined" class="rounded-lg pa-6">
-                  <div class="mb-6">
-                    <div class="mb-3 text-subtitle-2 font-weight-bold">不同寬度和高度</div>
-                    <div class="flex-wrap gap-3 d-flex">
-                      <v-btn color="success" @click="showCustomLeft = true"> 寬 500px 左側抽屜 </v-btn>
-                      <v-btn color="success" @click="showCustomRight = true"> 寬 400px 右側抽屜 </v-btn>
-                      <v-btn color="success" @click="showCustomTop = true"> 高 300px 頂部抽屜 </v-btn>
-                      <v-btn color="success" @click="showCustomBottom = true"> 高 500px 底部抽屜 </v-btn>
-                    </div>
-                  </div>
-                </v-card>
-              </div>
-
-              <!-- 持久模式 -->
-              <div class="mb-10">
-                <div class="mb-4 section-title">持久模式</div>
-                <v-card variant="outlined" class="rounded-lg pa-6">
-                  <div class="mb-4 text-body-2 text-grey-darken-1">
-                    設置 <code>persistent</code> 為 <code>true</code> 時，點擊遮罩層不會關閉抽屜
-                  </div>
-                  <div class="flex-wrap gap-3 d-flex">
-                    <v-btn color="warning" @click="showPersistent = true"> 持久模式抽屜 </v-btn>
-                  </div>
-                </v-card>
-              </div>
-            </v-window-item>
-          </v-window>
+            </v-card>
+          </div>
         </v-card-text>
       </v-card>
     </v-container>
@@ -183,8 +174,6 @@
 import { ref } from 'vue'
 import Drawer from '@/components/Drawer.vue'
 
-const activeTab = ref('drawer')
-
 // 基本用法
 const showLeft = ref(false)
 const showRight = ref(false)
@@ -224,21 +213,6 @@ const tableItems = [
 
 .gap-3 {
   gap: 12px;
-}
-
-.code-block {
-  background-color: #f5f5f5;
-  padding: 16px;
-  border-radius: 8px;
-  overflow-x: auto;
-  font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: #303133;
-}
-
-.code-block code {
-  background: none;
 }
 
 .drawer-content-demo {

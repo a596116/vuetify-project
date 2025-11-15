@@ -20,7 +20,8 @@
     "previous": "上一步",
     "select": "選擇",
     "selectFile": "選擇文件",
-    "openDialog": "打開對話框"
+    "openDialog": "打開對話框",
+    "visitCount": "訪問次數"
   },
   "menu": {
     "home": "首頁",
@@ -29,8 +30,11 @@
     "osUsage": "操作系統統計",
     "kpiOverview": "KPI 總覽",
     "notificationDemo": "通知組件",
-    "componentsDemo": "組件展示",
-    "i18nDemo": "多語系示範"
+    "drawerDemo": "Drawer 抽屜",
+    "loadingDemo": "Loading 載入",
+    "inputDemo": "Input 輸入框",
+    "i18nDemo": "多語系示範",
+    "componentsDemo": "組件展示"
   },
   "table": {
     "title": "表格",
