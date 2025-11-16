@@ -15,6 +15,8 @@ declare module 'vue' {
     AppBar: typeof import('./components/Layout/AppBar.vue')['default']
     AppFooter: typeof import('./components/AppFooter.vue')['default']
     Breadcrumbs: typeof import('./components/Layout/Breadcrumbs.vue')['default']
+    DatePicker: typeof import('./components/DatePicker.vue')['default']
+    DateTimeInput: typeof import('./components/DateTimeInput.vue')['default']
     Drawer: typeof import('./components/Drawer.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     Input: typeof import('./components/Input.vue')['default']
@@ -26,6 +28,7 @@ declare module 'vue' {
     Notification: typeof import('./components/Notification.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TimePicker: typeof import('./components/TimePicker.vue')['default']
     UserInfo: typeof import('./components/Layout/UserInfo.vue')['default']
   }
 }

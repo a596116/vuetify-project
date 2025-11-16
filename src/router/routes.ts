@@ -65,6 +65,12 @@ export const routes = [
             name: 'input-demo',
             component: () => import('@/pages/input-demo.vue'),
             meta: { title: 'Input 輸入框', i18nKey: 'menu.inputDemo' }
+          },
+          {
+            path: 'datetime',
+            name: 'datetime-demo',
+            component: () => import('@/pages/datetime-demo.vue'),
+            meta: { title: '日期時間輸入', i18nKey: 'menu.datetimeDemo' }
           }
         ]
       }

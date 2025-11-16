@@ -23,11 +23,6 @@
     "openDialog": "打開對話框",
     "visitCount": "訪問次數"
   },
-  "user": {
-    "profile": "個人資料",
-    "settings": "設定",
-    "role": "管理員"
-  },
   "menu": {
     "home": "首頁",
     "charts": "圖表展示",
@@ -39,7 +34,13 @@
     "loadingDemo": "Loading 載入",
     "inputDemo": "Input 輸入框",
     "i18nDemo": "多語系示範",
-    "componentsDemo": "組件展示"
+    "componentsDemo": "組件展示",
+    "datetimeDemo": "日期時間輸入"
+  },
+  "user": {
+    "profile": "個人資料",
+    "settings": "設定",
+    "role": "管理員"
   },
   "table": {
     "title": "表格",

@@ -23,11 +23,6 @@
     "openDialog": "Open Dialog",
     "visitCount": "Visit Count"
   },
-  "user": {
-    "profile": "Profile",
-    "settings": "Settings",
-    "role": "Administrator"
-  },
   "menu": {
     "home": "Home",
     "charts": "Charts",
@@ -39,7 +34,13 @@
     "loadingDemo": "Loading",
     "inputDemo": "Input",
     "i18nDemo": "i18n Demo",
-    "componentsDemo": "Components Demo"
+    "componentsDemo": "Components Demo",
+    "datetimeDemo": "DateTime Input"
+  },
+  "user": {
+    "profile": "Profile",
+    "settings": "Settings",
+    "role": "Administrator"
   },
   "table": {
     "title": "Table",

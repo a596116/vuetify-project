@@ -21,6 +21,7 @@ declare module 'vue-router/auto-routes' {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/chart-table': RouteRecordInfo<'/chart-table', '/chart-table', Record<never, never>, Record<never, never>>,
     '/charts': RouteRecordInfo<'/charts', '/charts', Record<never, never>, Record<never, never>>,
+    '/datetime-demo': RouteRecordInfo<'/datetime-demo', '/datetime-demo', Record<never, never>, Record<never, never>>,
     '/drawer-demo': RouteRecordInfo<'/drawer-demo', '/drawer-demo', Record<never, never>, Record<never, never>>,
     '/input-demo': RouteRecordInfo<'/input-demo', '/input-demo', Record<never, never>, Record<never, never>>,
     '/kpi-overview': RouteRecordInfo<'/kpi-overview', '/kpi-overview', Record<never, never>, Record<never, never>>,
@@ -50,6 +51,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/charts.vue': {
       routes: '/charts'
+      views: never
+    }
+    'src/pages/datetime-demo.vue': {
+      routes: '/datetime-demo'
       views: never
     }
     'src/pages/drawer-demo.vue': {
