@@ -13,7 +13,7 @@ export type MenuItem = {
 
 export const useAppStore = defineStore('app', {
   state: () => ({
-    rail: false,
+    rail: true,
     visitCount: 0
   }),
   getters: {

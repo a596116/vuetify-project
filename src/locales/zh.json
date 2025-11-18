@@ -29,6 +29,7 @@
     "chartTable": "圖表與表格",
     "osUsage": "操作系統統計",
     "kpiOverview": "KPI 總覽",
+    "pivotTable": "數據透視表",
     "notificationDemo": "通知組件",
     "drawerDemo": "Drawer 抽屜",
     "loadingDemo": "Loading 載入",
@@ -139,5 +140,21 @@
   },
   "notificationDemo": {
     "title": "通知組件示範"
+  },
+  "pivotTable": {
+    "title": "數據透視表分析",
+    "subtitle": "互動式數據透視表",
+    "rawDataTitle": "原始數據",
+    "machineCountTitle": "機號重複統計",
+    "barChartTitle": "機號統計長條圖",
+    "barChartSubtitle": "各機號出現次數統計",
+    "times": "次",
+    "headers": {
+      "keyNo": "編號",
+      "number": "機號",
+      "remark": "備註",
+      "datetime": "日期時間",
+      "count": "重複次數"
+    }
   }
 }

@@ -28,6 +28,7 @@ declare module 'vue-router/auto-routes' {
     '/loading-demo': RouteRecordInfo<'/loading-demo', '/loading-demo', Record<never, never>, Record<never, never>>,
     '/notification-demo': RouteRecordInfo<'/notification-demo', '/notification-demo', Record<never, never>, Record<never, never>>,
     '/os-usage': RouteRecordInfo<'/os-usage', '/os-usage', Record<never, never>, Record<never, never>>,
+    '/pivot-table': RouteRecordInfo<'/pivot-table', '/pivot-table', Record<never, never>, Record<never, never>>,
   }
 
   /**
@@ -79,6 +80,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/os-usage.vue': {
       routes: '/os-usage'
+      views: never
+    }
+    'src/pages/pivot-table.vue': {
+      routes: '/pivot-table'
       views: never
     }
   }

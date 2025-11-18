@@ -37,6 +37,12 @@ export const routes = [
         meta: { title: 'KPI 總覽', icon: 'mdi-view-dashboard-outline', i18nKey: 'menu.kpiOverview' }
       },
       {
+        path: '/pivot-table',
+        name: 'pivot-table',
+        component: () => import('@/pages/pivot-table.vue'),
+        meta: { title: '數據透視表', icon: 'mdi-table-pivot', i18nKey: 'menu.pivotTable' }
+      },
+      {
         path: '/components-demo',
         name: 'components-demo',
         redirect: '/components-demo/drawer',

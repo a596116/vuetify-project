@@ -29,6 +29,7 @@
     "chartTable": "Chart & Table",
     "osUsage": "OS Statistics",
     "kpiOverview": "KPI Overview",
+    "pivotTable": "Pivot Table",
     "notificationDemo": "Notification Demo",
     "drawerDemo": "Drawer",
     "loadingDemo": "Loading",
@@ -139,5 +140,21 @@
   },
   "notificationDemo": {
     "title": "Notification Component Demo"
+  },
+  "pivotTable": {
+    "title": "Pivot Table Analysis",
+    "subtitle": "Interactive Pivot Table",
+    "rawDataTitle": "Raw Data",
+    "machineCountTitle": "Machine Number Duplicate Count",
+    "barChartTitle": "Machine Number Statistics Bar Chart",
+    "barChartSubtitle": "Count Statistics by Machine Number",
+    "times": "times",
+    "headers": {
+      "keyNo": "Key Number",
+      "number": "Machine Number",
+      "remark": "Remark",
+      "datetime": "Date Time",
+      "count": "Count"
+    }
   }
 }
